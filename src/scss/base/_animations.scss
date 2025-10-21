@@ -1,0 +1,21 @@
+@use '../abstracts/variables' as *;
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: $opacity-0;
+  }
+  to {
+    transform: scale(1);
+    opacity: $opacity-100;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: $opacity-0;
+  }
+  to {
+    opacity: $opacity-100;
+  }
+}
