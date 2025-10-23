@@ -1,0 +1,42 @@
+@use '../abstracts/variables' as *;
+
+.sidebar {
+  background: #faf8f6;
+  padding: $spacing-sm;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-header__user {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.sidebar-header__avatar {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: $radius-circle;
+  font-size: $font-size-xs;
+  color: #ffffff;
+  background: #f3501e;
+}
+
+.sidebar-header__avatar::before {
+  content: 'U';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-weight: $font-weight-medium;
+}
+
+.sidebar-header__username {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+}

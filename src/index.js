@@ -1,3 +1,5 @@
 import './scss/main.scss';
 
-console.log('Hello, World!');
+import { populateSidebar } from './layouts/sidebar';
+
+populateSidebar();

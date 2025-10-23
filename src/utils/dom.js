@@ -1,8 +1,8 @@
-export function createElement(tag, classname = '', textcontent = '') {
-  const element = document.createelement(tag);
+export function createElement(tag, className = '', textContent = '') {
+  const element = document.createElement(tag);
 
-  if (classname) element.classname = classname;
-  if (textcontent) element.textcontent = textcontent;
+  if (className) element.className = className;
+  if (textContent) element.textContent = textContent;
 
   return element;
 }
@@ -19,6 +19,6 @@ export function toggleClass(element, className) {
   element.classList.toggle(className);
 }
 
-export function addevent(element, event, handler) {
-  element.addeventlistener(event, handler);
+export function addEvent(element, event, handler) {
+  element.addEventListener(event, handler);
 }

@@ -1,0 +1,39 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.icon {
+  display: inline-flex;
+  color: #1a1a1a;
+  padding: 0.125rem;
+  border-radius: $radius-md;
+}
+
+.icon svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex: 0 0 auto;
+  stroke: currentColor;
+}
+
+.icon--small svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon--large svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon--thin svg path {
+  stroke-width: 1;
+}
+
+.icon--bold svg path {
+  stroke-width: 3;
+}
+
+.icon--hover {
+  @include transition((background-color));
+  @include hover-state($bg: #e7e4e2, $cursor: pointer);
+}

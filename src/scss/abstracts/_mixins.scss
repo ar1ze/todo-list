@@ -1,1 +1,63 @@
+@use 'sass:list';
 @use 'variables' as *;
+
+@mixin transition(
+  $properties: all,
+  $duration: 200ms,
+  $timing: ease-in-out,
+  $delay: 0s
+) {
+  $transitions: ();
+
+  @each $property in $properties {
+    $transitions: list.append(
+      $transitions,
+      $property $duration $timing $delay,
+      comma
+    );
+  }
+
+  transition: $transitions;
+}
+
+@mixin hover-state(
+  $border: null,
+  $color: null,
+  $bg: null,
+  $opacity: null,
+  $shadow: null,
+  $cursor: null
+) {
+  &:hover {
+    @if $border {
+      border: $border;
+    }
+    @if $color {
+      color: $color;
+    }
+    @if $bg {
+      background: $bg;
+    }
+    @if $opacity {
+      opacity: $opacity;
+    }
+    @if $shadow {
+      box-shadow: $shadow;
+    }
+    @if $cursor {
+      cursor: $cursor;
+    }
+  }
+}
+
+@mixin hover-transform($transforms) {
+  $transform-list: ();
+
+  @each $transform in $transforms {
+    $transform-list: list.append($transform-list, $transform, space);
+  }
+
+  &:hover {
+    transform: $transform-list;
+  }
+}
