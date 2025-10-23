@@ -12,6 +12,7 @@ import menu from '../assets/icons/menu.svg';
 import more from '../assets/icons/more.svg';
 import plusSquare from '../assets/icons/plus-square.svg';
 import plus from '../assets/icons/plus.svg';
+import sidebarMinimalistic from '../assets/icons/sidebar-minimalistic.svg';
 import trash from '../assets/icons/trash.svg';
 
 export const icons = {
@@ -29,5 +30,6 @@ export const icons = {
   more,
   plus,
   plusSquare,
+  sidebarMinimalistic,
   trash,
 };
