@@ -1,5 +1,11 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use '../abstracts' as *;
+
+button.icon {
+  background: none;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+}
 
 .icon {
   display: inline-flex;
@@ -35,5 +41,5 @@
 
 .icon--hover {
   @include transition((background-color));
-  @include hover-state($bg: #e7e4e2, $cursor: pointer);
+  @include hover-state($bg: #e7e4e2);
 }

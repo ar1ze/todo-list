@@ -3,8 +3,8 @@
 
 @mixin transition(
   $properties: all,
-  $duration: 200ms,
-  $timing: ease-in-out,
+  $duration: 250ms,
+  $timing: ease-out,
   $delay: 0s
 ) {
   $transitions: ();

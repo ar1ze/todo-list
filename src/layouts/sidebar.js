@@ -2,7 +2,7 @@ import { icons, createIcon } from '../utils/icons';
 
 import * as dom from '../utils/dom';
 
-function createSidebarHeader() {
+function createSidebarHeader(sidebar) {
   const header = dom.createElement('div', 'sidebar-header');
 
   const user = dom.createElement('div', 'sidebar-header__user');
@@ -14,12 +14,15 @@ function createSidebarHeader() {
   );
   user.append(avatar, username);
 
-  const icon = createIcon(icons.sidebarMinimalistic, [
-    'sidebar-header__icon',
-    'icon--large',
-    'icon--thin',
-    'icon--hover',
-  ]);
+  const icon = createIcon(
+    icons.sidebarMinimalistic,
+    ['sidebar__toggle', 'icon--large', 'icon--thin', 'icon--hover'],
+    'button'
+  );
+
+  dom.addEvent(icon, 'click', () =>
+    dom.toggleClass(sidebar, 'sidebar--collapse')
+  );
 
   header.append(user, icon);
 
@@ -28,6 +31,6 @@ function createSidebarHeader() {
 
 export function populateSidebar() {
   const sidebar = dom.getElement('.sidebar');
-  const sidebarHeader = createSidebarHeader();
+  const sidebarHeader = createSidebarHeader(sidebar);
   sidebar.append(sidebarHeader);
 }

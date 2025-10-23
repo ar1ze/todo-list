@@ -36,11 +36,13 @@ export const icons = {
   trash,
 };
 
-export function createIcon(icon, className = []) {
-  const iconContainer = dom.createElement('span', 'icon');
+export function createIcon(icon, className = [], tag = 'span') {
+  const iconContainer = dom.createElement(tag, 'icon');
 
   if (className) iconContainer.classList.add(...className);
   iconContainer.innerHTML = icon;
+
+  if (tag === 'button') iconContainer.setAttribute('type', 'button');
 
   return iconContainer;
 }
