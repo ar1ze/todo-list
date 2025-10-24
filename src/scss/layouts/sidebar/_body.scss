@@ -1,0 +1,29 @@
+@use '../../abstracts' as *;
+
+.sidebar {
+  padding: $spacing-sm;
+  width: 100%;
+  background: $bg-secondary;
+
+  @include transition((width, background));
+}
+
+.sidebar--collapse {
+  width: 3rem;
+  background: $bg-primary;
+}
+
+.sidebar--collapse .sidebar-header__user {
+  color: black;
+  visibility: hidden;
+  max-width: 0;
+  opacity: 0;
+}
+
+.sidebar--collapse .sidebar-header {
+  justify-content: center;
+}
+
+.sidebar--collapse .sidebar-header__toggle {
+  transform: rotate(180deg);
+}

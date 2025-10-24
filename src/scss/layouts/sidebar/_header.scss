@@ -1,12 +1,4 @@
-@use '../abstracts' as *;
-
-.sidebar {
-  padding: $spacing-sm;
-  width: 100%;
-  background: $bg-secondary;
-
-  @include transition((width, background));
-}
+@use '../../abstracts' as *;
 
 .sidebar-header {
   display: flex;
@@ -66,26 +58,6 @@
   white-space: nowrap;
 }
 
-.sidebar--collapse {
-  width: 3rem;
-  background: $bg-primary;
-}
-
-.sidebar__toggle {
+.sidebar-header__toggle {
   @include transition((transform));
-}
-
-.sidebar--collapse .sidebar-header__user {
-  color: black;
-  visibility: hidden;
-  max-width: 0;
-  opacity: 0;
-}
-
-.sidebar--collapse .sidebar-header {
-  justify-content: center;
-}
-
-.sidebar--collapse .sidebar__toggle {
-  transform: rotate(180deg);
 }

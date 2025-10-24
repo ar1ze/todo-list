@@ -1,8 +1,8 @@
-import { icons, createIcon } from '../utils/icons';
+import { icons, createIcon } from '../../utils/icons';
 
-import * as dom from '../utils/dom';
+import * as dom from '../../utils/dom';
 
-function createSidebarHeader(sidebar) {
+export function createSidebarHeader(sidebar) {
   const header = dom.createElement('header', 'sidebar-header');
 
   const user = dom.createElement('div', 'sidebar-header__user');
@@ -16,7 +16,7 @@ function createSidebarHeader(sidebar) {
 
   const icon = createIcon(
     icons.sidebarMinimalistic,
-    ['sidebar__toggle', 'icon--large', 'icon--thin', 'icon--hover'],
+    ['sidebar-header__toggle', 'icon--large', 'icon--thin', 'icon--hover'],
     'button'
   );
 
@@ -27,10 +27,4 @@ function createSidebarHeader(sidebar) {
   header.append(user, icon);
 
   return header;
-}
-
-export function populateSidebar() {
-  const sidebar = dom.getElement('.sidebar');
-  const sidebarHeader = createSidebarHeader(sidebar);
-  sidebar.append(sidebarHeader);
 }
