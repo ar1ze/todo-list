@@ -1,0 +1,29 @@
+@use '../../abstracts' as *;
+
+.sidebar-views__list {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar-views__link {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+  padding: 2px 8px;
+  border: none;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  background: $bg-secondary;
+
+  @include transition((background, color));
+  @include hover-state($bg: $color-light-grey, $cursor: pointer);
+}
+
+.sidebar-views__text {
+  font-weight: $font-weight-normal;
+}

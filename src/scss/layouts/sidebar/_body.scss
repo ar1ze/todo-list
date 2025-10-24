@@ -1,6 +1,9 @@
 @use '../../abstracts' as *;
 
 .sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
   padding: $spacing-sm;
   width: 100%;
   background: $bg-secondary;
@@ -13,8 +16,8 @@
   background: $bg-primary;
 }
 
-.sidebar--collapse .sidebar-header__user {
-  color: black;
+.sidebar--collapse .sidebar-header__user,
+.sidebar--collapse .views {
   visibility: hidden;
   max-width: 0;
   opacity: 0;
