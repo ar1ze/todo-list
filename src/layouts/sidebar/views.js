@@ -1,13 +1,13 @@
-import { icons, createIcon } from '../../utils/icons';
+import { ICONS, createIcon } from '../../utils/icons';
 import * as dom from '../../utils/dom';
 
 export function createSidebarViews() {
   const classList = ['views__icon', 'icon--large'];
 
   const viewItems = [
-    { name: 'Today', icon: createIcon(icons.calendarToday, classList) },
-    { name: 'This Week', icon: createIcon(icons.calendarUpcoming, classList) },
-    { name: 'Completed', icon: createIcon(icons.checkAll, classList) },
+    { name: 'Today', icon: createIcon(ICONS.calendarToday, classList) },
+    { name: 'This Week', icon: createIcon(ICONS.calendarUpcoming, classList) },
+    { name: 'Completed', icon: createIcon(ICONS.checkAll, classList) },
   ];
 
   const nav = dom.createElement('nav', 'sidebar-views');

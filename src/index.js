@@ -1,10 +1,22 @@
 import './scss/main.scss';
 
-import { populateSidebar } from './layouts/sidebar';
-import { createLoadingScreen, hideLoadingScreen } from './utils/loading';
+import * as sidebar from './layouts/sidebar';
+import * as loader from './utils/loader';
 
-const loader = createLoadingScreen();
+import * as sample from './utils/sample';
 
-populateSidebar();
+class App {
+  constructor() {
+    this.loader = loader.createDisplay();
+    this.projects = sample.projects();
+    this._init();
+  }
 
-window.addEventListener('load', () => hideLoadingScreen(loader));
+  _init() {
+    sidebar.populate();
+    window.addEventListener('load', () => loader.hideDisplay(this.loader));
+  }
+}
+
+const app = new App();
+console.log(app.projects);

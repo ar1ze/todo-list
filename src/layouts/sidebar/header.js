@@ -1,4 +1,4 @@
-import { icons, createIcon } from '../../utils/icons';
+import { ICONS, createIcon } from '../../utils/icons';
 
 import * as dom from '../../utils/dom';
 
@@ -15,7 +15,7 @@ export function createSidebarHeader(sidebar) {
   user.append(avatar, username);
 
   const icon = createIcon(
-    icons.sidebarMinimalistic,
+    ICONS.sidebarMinimalistic,
     ['sidebar-header__toggle', 'icon--large', 'icon--thin', 'icon--hover'],
     'button'
   );

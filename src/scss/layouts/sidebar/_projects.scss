@@ -1,0 +1,17 @@
+@use '../../abstracts' as *;
+
+.sidebar-projects {
+  margin: 0;
+}
+
+.sidebar-projects__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-projects__title {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-black;
+}

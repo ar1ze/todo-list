@@ -1,12 +1,12 @@
 import * as dom from './dom';
 
-export function createLoadingScreen() {
+export function createDisplay() {
   const loader = dom.createElement('div', 'loading-screen');
   document.body.prepend(loader);
   return loader;
 }
 
-export function hideLoadingScreen(loader) {
+export function hideDisplay(loader) {
   setTimeout(() => {
     loader.remove();
   }, 100);
