@@ -3,6 +3,7 @@ export function createElement(tag, className = '', textContent = '') {
 
   if (className) element.className = className;
   if (textContent) element.textContent = textContent;
+  if (tag === 'button') element.type = 'button';
 
   return element;
 }

@@ -42,7 +42,7 @@ export function createIcon(icon, className = [], tag = 'span') {
   if (className) iconContainer.classList.add(...className);
   iconContainer.innerHTML = icon;
 
-  if (tag === 'button') iconContainer.setAttribute('type', 'button');
+  if (tag === 'button') iconContainer.type = 'button';
 
   return iconContainer;
 }
