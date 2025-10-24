@@ -3,7 +3,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: $spacing-lg;
+  gap: $spacing-md;
   padding: $spacing-sm;
   width: 100%;
   background: $bg-secondary;
@@ -17,7 +17,8 @@
 }
 
 .sidebar--collapse .sidebar-header__user,
-.sidebar--collapse .views {
+.sidebar--collapse .sidebar-views,
+.sidebar--collapse .sidebar-projects {
   visibility: hidden;
   max-width: 0;
   opacity: 0;

@@ -14,11 +14,13 @@ export function createSidebarHeader(sidebar) {
   );
   user.append(avatar, username);
 
-  const icon = createIcon(
-    ICONS.sidebarMinimalistic,
-    ['sidebar-header__toggle', 'icon--large', 'icon--thin', 'icon--hover'],
-    'button'
-  );
+  const iconClasses = [
+    'sidebar-header__toggle',
+    'icon--large',
+    'icon--thin',
+    'icon--hover',
+  ];
+  const icon = createIcon(ICONS.sidebarMinimalistic, iconClasses, 'button');
 
   dom.addEvent(icon, 'click', () =>
     dom.toggleClass(sidebar, 'sidebar--collapse')

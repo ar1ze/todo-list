@@ -1,7 +1,8 @@
 @use '../../abstracts' as *;
 
 .sidebar-projects {
-  margin: 0;
+  display: grid;
+  gap: $spacing-xs;
 }
 
 .sidebar-projects__header {

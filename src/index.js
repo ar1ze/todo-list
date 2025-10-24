@@ -13,10 +13,9 @@ class App {
   }
 
   _init() {
-    sidebar.populate();
+    sidebar.populate(this.projects);
     window.addEventListener('load', () => loader.hideDisplay(this.loader));
   }
 }
 
-const app = new App();
-console.log(app.projects);
+new App();
