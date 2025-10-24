@@ -5,7 +5,7 @@
   width: 100%;
   background: $bg-secondary;
 
-  @include transition((width, background-color, border-color));
+  @include transition((width, background));
 }
 
 .sidebar-header {
@@ -20,12 +20,17 @@
   display: flex;
   align-items: center;
   gap: $spacing-xs;
+  padding: 0.25rem 0.2rem;
+  border-radius: $radius-md;
+
   overflow: hidden;
 
-  @include transition((visibility, max-width, opacity));
+  @include transition((background, visibility, max-width, opacity));
+  @include hover-state($bg: $color-light-grey, $cursor: pointer);
 }
 
 .sidebar-header__avatar {
+  position: relative;
   display: grid;
   place-items: center;
   width: 1.5rem;
@@ -38,19 +43,31 @@
 .sidebar-header__avatar::before {
   content: 'U';
   font-size: $font-size-xs;
-  font-weight: $font-weight-medium;
   color: $color-white;
   transform: translateY(1px);
+}
+
+.sidebar-header__avatar::after {
+  content: '';
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: $border-width-thin solid $color-white;
+  border-radius: $radius-circle;
+  background: #f28218;
+  bottom: 0;
+  right: 0;
 }
 
 .sidebar-header__username {
   font-size: $font-size-xs;
   font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-wide;
   white-space: nowrap;
 }
 
 .sidebar--collapse {
-  width: 4rem;
+  width: 3rem;
   background: $bg-primary;
 }
 

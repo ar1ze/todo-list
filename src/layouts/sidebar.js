@@ -3,7 +3,7 @@ import { icons, createIcon } from '../utils/icons';
 import * as dom from '../utils/dom';
 
 function createSidebarHeader(sidebar) {
-  const header = dom.createElement('div', 'sidebar-header');
+  const header = dom.createElement('header', 'sidebar-header');
 
   const user = dom.createElement('div', 'sidebar-header__user');
   const avatar = dom.createElement('div', 'sidebar-header__avatar');
