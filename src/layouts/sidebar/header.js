@@ -1,5 +1,4 @@
 import { ICONS, createIcon } from '../../utils/icons';
-
 import * as dom from '../../utils/dom';
 
 export function createSidebarHeader(sidebar) {

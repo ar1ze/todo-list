@@ -10,7 +10,7 @@ function createHeader() {
   );
 
   const toggleClasses = [
-    'sidebar-projects__icon',
+    'sidebar-projects__header-icon',
     'icon--large',
     'icon--hover',
   ];
@@ -18,7 +18,7 @@ function createHeader() {
 
   header.append(title, toggleBtn);
 
-  return header;
+  return { header, toggleBtn };
 }
 
 function createProjectList(projects) {
@@ -45,10 +45,14 @@ function createProjectList(projects) {
 export function createSidebarProjects(projects) {
   const section = dom.createElement('section', 'sidebar-projects');
 
-  const header = createHeader();
-  const list = createProjectList(projects);
+  const { header, toggleBtn } = createHeader();
+  const projectList = createProjectList(projects);
 
-  section.append(header, list);
+  toggleBtn.addEventListener('click', () => {
+    section.classList.toggle('sidebar-projects--collapsed');
+  });
+
+  section.append(header, projectList);
 
   return section;
 }

@@ -9,10 +9,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-block: 0.25rem;
+  padding-inline-start: 0.2rem;
+  border-radius: $radius-md;
+
+  @include hover-state($bg: $color-light-grey, $cursor: pointer);
 }
 
 .sidebar-projects__title {
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
-  color: $color-black;
+  color: #474747;
+}
+
+.sidebar-projects--collapsed .nav-list {
+  display: none;
+}
+
+.sidebar-projects--collapsed .sidebar-projects__header-icon svg {
+  transform: rotate(-90deg);
+}
+
+.sidebar-projects__header-icon svg {
+  @include transition((transform));
+}
+
+.sidebar-projects__header-icon {
+  @include hover-state($bg: #e7e4e2);
 }
