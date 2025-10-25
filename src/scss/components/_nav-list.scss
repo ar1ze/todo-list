@@ -18,9 +18,10 @@
   border-radius: $radius-md;
   font-size: $font-size-sm;
   background: $bg-secondary;
+  cursor: pointer;
 
   @include transition((background, color));
-  @include hover-state($bg: $color-light-grey, $cursor: pointer);
+  @include hover-state($bg: $color-light-grey);
 }
 
 .nav-list__text {
@@ -34,4 +35,5 @@
   .icon svg path {
     stroke: $color-accent-red;
   }
+  @include hover-state($bg: $color-accent-red-light);
 }
