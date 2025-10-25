@@ -1,5 +1,4 @@
-import { ICONS, createIcon } from '../../utils/icons';
-
+import * as icon from '../../utils/icon';
 import * as dom from '../../utils/dom';
 import * as nav from '../../utils/nav';
 
@@ -16,7 +15,7 @@ function createHeader(sidebar) {
     'icon--large',
     'icon--hover',
   ];
-  const toggleBtn = createIcon(ICONS.chevronDown, toggleClasses, 'button');
+  const toggleBtn = icon.create(icon.chevronDown, toggleClasses, 'button');
 
   header.addEventListener('click', (event) => {
     if (event.target.closest('.sidebar-projects__header-icon')) return;
@@ -41,10 +40,10 @@ function createProjectList(sidebar, projects) {
     const listItem = dom.createElement('li', 'nav-list__item');
     const button = dom.createElement('button', 'nav-list__link');
 
-    const icon = createIcon(ICONS.hashtag, iconClasses);
+    const hashtag = icon.create(icon.hashtag, iconClasses);
     const text = dom.createElement('span', 'nav-list__text', project.name);
 
-    button.append(icon, text);
+    button.append(hashtag, text);
     listItem.append(button);
 
     button.addEventListener('click', (event) => {

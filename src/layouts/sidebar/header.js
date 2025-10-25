@@ -1,4 +1,4 @@
-import { ICONS, createIcon } from '../../utils/icons';
+import * as icon from '../../utils/icon';
 import * as dom from '../../utils/dom';
 
 export function createSidebarHeader(sidebar) {
@@ -19,13 +19,13 @@ export function createSidebarHeader(sidebar) {
     'icon--thin',
     'icon--hover',
   ];
-  const icon = createIcon(ICONS.sidebarMinimalistic, iconClasses, 'button');
+  const toggle = icon.create(icon.sidebarMinimalistic, iconClasses, 'button');
 
-  dom.addEvent(icon, 'click', () =>
+  dom.addEvent(toggle, 'click', () =>
     dom.toggleClass(sidebar, 'sidebar--collapse')
   );
 
-  header.append(user, icon);
+  header.append(user, toggle);
 
   return header;
 }

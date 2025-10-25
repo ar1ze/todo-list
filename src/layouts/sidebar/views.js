@@ -1,5 +1,4 @@
-import { ICONS, createIcon } from '../../utils/icons';
-
+import * as icon from '../../utils/icon';
 import * as dom from '../../utils/dom';
 import * as nav from '../../utils/nav';
 
@@ -9,15 +8,15 @@ export function createSidebarViews(sidebar) {
   const viewItems = [
     {
       name: nav.PAGE.TODAY,
-      icon: createIcon(ICONS.calendarToday, iconClasses),
+      icon: icon.create(icon.calendarToday, iconClasses),
     },
     {
       name: nav.PAGE.THIS_WEEK,
-      icon: createIcon(ICONS.calendarUpcoming, iconClasses),
+      icon: icon.create(icon.calendarUpcoming, iconClasses),
     },
     {
       name: nav.PAGE.COMPLETED,
-      icon: createIcon(ICONS.checkAll, iconClasses),
+      icon: icon.create(icon.checkAll, iconClasses),
     },
   ];
 

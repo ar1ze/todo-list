@@ -17,7 +17,7 @@ import plus from '../assets/icons/plus.svg';
 import sidebarMinimalistic from '../assets/icons/sidebar-minimalistic.svg';
 import trash from '../assets/icons/trash.svg';
 
-export const ICONS = {
+export {
   calendarToday,
   calendarUpcoming,
   checkAll,
@@ -36,13 +36,11 @@ export const ICONS = {
   trash,
 };
 
-export function createIcon(icon, className = [], tag = 'span') {
+export function create(icon, className = [], tag = 'span') {
   const iconContainer = dom.createElement(tag, 'icon');
 
   if (className) iconContainer.classList.add(...className);
   iconContainer.innerHTML = icon;
-
-  if (tag === 'button') iconContainer.type = 'button';
 
   return iconContainer;
 }
