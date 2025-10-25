@@ -1,10 +1,12 @@
 import { ICONS, createIcon } from '../../utils/icons';
-import * as dom from '../../utils/dom';
 
-function createHeader() {
-  const header = dom.createElement('div', 'sidebar-projects__header');
+import * as dom from '../../utils/dom';
+import * as nav from '../../utils/nav';
+
+function createHeader(sidebar) {
+  const header = dom.createElement('button', 'sidebar-projects__header');
   const title = dom.createElement(
-    'h3',
+    'span',
     'sidebar-projects__title',
     'My Projects'
   );
@@ -16,19 +18,27 @@ function createHeader() {
   ];
   const toggleBtn = createIcon(ICONS.chevronDown, toggleClasses, 'button');
 
-  header.append(title, toggleBtn);
+  header.addEventListener('click', (event) => {
+    if (event.target.closest('.sidebar-projects__header-icon')) return;
 
+    nav.clearActiveStates(sidebar);
+    const listLink = event.target.closest('.sidebar-projects__header');
+    listLink.classList.add('sidebar-projects__header--active');
+
+    nav.setActivePage(nav.PAGE.MY_PROJECTS);
+    nav.dispatchPageChange(nav.PAGE.MY_PROJECTS, nav.PAGE_TYPE.PROJECT);
+  });
+
+  header.append(title, toggleBtn);
   return { header, toggleBtn };
 }
 
-function createProjectList(projects) {
+function createProjectList(sidebar, projects) {
   const list = dom.createElement('ul', 'nav-list');
   const iconClasses = ['sidebar-projects__icon'];
 
-  projects.forEach((project, index) => {
+  projects.forEach((project) => {
     const listItem = dom.createElement('li', 'nav-list__item');
-    if (index === 0) listItem.classList.add('sidebar-projects__item--active');
-
     const button = dom.createElement('button', 'nav-list__link');
 
     const icon = createIcon(ICONS.hashtag, iconClasses);
@@ -36,17 +46,21 @@ function createProjectList(projects) {
 
     button.append(icon, text);
     listItem.append(button);
+
+    button.addEventListener('click', (event) => {
+      nav.handleNavClick(event, sidebar, project.name, nav.PAGE_TYPE.PROJECT);
+    });
     list.append(listItem);
   });
 
   return list;
 }
 
-export function createSidebarProjects(projects) {
+export function createSidebarProjects(sidebar, projects) {
   const section = dom.createElement('section', 'sidebar-projects');
 
-  const { header, toggleBtn } = createHeader();
-  const projectList = createProjectList(projects);
+  const { header, toggleBtn } = createHeader(sidebar);
+  const projectList = createProjectList(sidebar, projects);
 
   toggleBtn.addEventListener('click', () => {
     section.classList.toggle('sidebar-projects--collapsed');

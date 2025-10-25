@@ -26,3 +26,12 @@
 .nav-list__text {
   text-wrap: nowrap;
 }
+
+.nav-list__link--active {
+  color: $color-accent-red;
+  background: $color-accent-red-light;
+
+  .icon svg path {
+    stroke: $color-accent-red;
+  }
+}

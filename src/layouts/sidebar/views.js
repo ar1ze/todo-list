@@ -1,32 +1,47 @@
 import { ICONS, createIcon } from '../../utils/icons';
-import * as dom from '../../utils/dom';
 
-export function createSidebarViews() {
+import * as dom from '../../utils/dom';
+import * as nav from '../../utils/nav';
+
+export function createSidebarViews(sidebar) {
   const iconClasses = ['sidebar-views__icon'];
 
   const viewItems = [
-    { name: 'Today', icon: createIcon(ICONS.calendarToday, iconClasses) },
     {
-      name: 'This Week',
+      name: nav.PAGE.TODAY,
+      icon: createIcon(ICONS.calendarToday, iconClasses),
+    },
+    {
+      name: nav.PAGE.THIS_WEEK,
       icon: createIcon(ICONS.calendarUpcoming, iconClasses),
     },
-    { name: 'Completed', icon: createIcon(ICONS.checkAll, iconClasses) },
+    {
+      name: nav.PAGE.COMPLETED,
+      icon: createIcon(ICONS.checkAll, iconClasses),
+    },
   ];
 
-  const nav = dom.createElement('nav', 'sidebar-views');
+  const navView = dom.createElement('nav', 'sidebar-views');
   const list = dom.createElement('ul', 'nav-list');
 
-  viewItems.forEach((item) => {
+  viewItems.forEach((item, index) => {
     const listItem = dom.createElement('li', 'nav-list__item');
-    const button = dom.createElement('button', 'nav-list__link');
 
+    const button = dom.createElement('button', 'nav-list__link');
     const text = dom.createElement('span', 'nav-list__text', item.name);
+    if (index === 0) button.classList.add('nav-list__link--active');
 
     button.append(item.icon, text);
     listItem.append(button);
+
+    button.addEventListener('click', (event) => {
+      nav.handleNavClick(event, sidebar, item.name, nav.PAGE_TYPE.VIEW);
+    });
+
     list.append(listItem);
   });
 
-  nav.append(list);
-  return nav;
+  navView.append(list);
+
+  return navView;
 }

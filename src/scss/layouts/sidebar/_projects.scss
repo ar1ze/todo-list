@@ -12,8 +12,19 @@
   padding-block: 0.25rem;
   padding-inline-start: 0.2rem;
   border-radius: $radius-md;
+  border: none;
+  background: $bg-secondary;
 
+  @include transition((background));
   @include hover-state($bg: $color-light-grey, $cursor: pointer);
+}
+
+.sidebar-projects__header--active {
+  background: $color-accent-red-light;
+
+  .sidebar-projects__title {
+    color: $color-accent-red;
+  }
 }
 
 .sidebar-projects__title {
