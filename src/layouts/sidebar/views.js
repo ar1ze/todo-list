@@ -24,12 +24,16 @@ export function createSidebarViews(sidebar) {
   const navView = dom.createElement('nav', 'sidebar-views');
   const list = dom.createElement('ul', 'nav-list');
 
-  viewItems.forEach((item, index) => {
+  viewItems.forEach((item) => {
     const listItem = dom.createElement('li', 'nav-list__item');
 
     const button = dom.createElement('button', 'nav-list__link');
     const text = dom.createElement('span', 'nav-list__text', item.name);
-    if (index === 0) button.classList.add('nav-list__link--active');
+
+    if (item.name == nav.PAGE.TODAY) {
+      nav.setActivePage(item.name);
+      button.classList.add('nav-list__link--active');
+    }
 
     button.append(item.icon, text);
     listItem.append(button);
