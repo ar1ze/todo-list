@@ -15,16 +15,33 @@ class App {
     this.sidebar = dom.getElement('.sidebar');
     this.main = dom.getElement('.main');
 
-    this._init();
+    this.startPage = nav.PAGE.MY_PROJECTS;
+    this.currentPage = this.startPage;
+
+    this._setup();
   }
 
-  _init() {
+  _setup() {
     sidebar.populate(this.sidebar, this.projects);
+    nav.initializeCurrentPage(this.startPage);
+
     window.addEventListener('load', () => loader.hideDisplay(this.loader));
 
     nav.onPageChange((detail) => {
-      this.updateMainContent(detail.page, detail.pageType);
+      this._handlePageChange(detail);
     });
+  }
+
+  _handlePageChange(detail) {
+    const { page, pageType } = detail;
+    if (this.currentPage === page) return;
+    this._refreshMainContent(page, pageType);
+  }
+
+  _refreshMainContent(page, pageType) {
+    this.currentPage = page;
+    this.main.replaceChildren();
+    this.updateMainContent(page, pageType);
   }
 
   _updateProjectContent(page) {
@@ -47,12 +64,9 @@ class App {
     }
   }
 
-  updateMainContent(page, type) {
-    if (type === nav.PAGE_TYPE.PROJECT) {
-      this._updateProjectContent(page);
-    } else if (type === nav.PAGE_TYPE.VIEW) {
-      this._updateViewContent(page);
-    }
+  updateMainContent(page, pageType) {
+    if (pageType === nav.PAGE_TYPE.PROJECT) this._updateProjectContent(page);
+    else if (pageType === nav.PAGE_TYPE.VIEW) this._updateViewContent(page);
   }
 }
 

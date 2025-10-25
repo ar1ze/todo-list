@@ -30,11 +30,6 @@ export function createSidebarViews(sidebar) {
     const button = dom.createElement('button', 'nav-list__link');
     const text = dom.createElement('span', 'nav-list__text', item.name);
 
-    if (item.name == nav.PAGE.TODAY) {
-      nav.setActivePage(item.name);
-      button.classList.add('nav-list__link--active');
-    }
-
     button.append(item.icon, text);
     listItem.append(button);
 

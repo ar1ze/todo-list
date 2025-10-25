@@ -21,12 +21,12 @@ function createHeader(sidebar) {
   header.addEventListener('click', (event) => {
     if (event.target.closest('.sidebar-projects__header-icon')) return;
 
-    nav.clearActiveStates(sidebar);
-    const listLink = event.target.closest('.sidebar-projects__header');
-    listLink.classList.add('sidebar-projects__header--active');
-
-    nav.setActivePage(nav.PAGE.MY_PROJECTS);
-    nav.dispatchPageChange(nav.PAGE.MY_PROJECTS, nav.PAGE_TYPE.PROJECT);
+    nav.handleNavClick(
+      event,
+      sidebar,
+      nav.PAGE.MY_PROJECTS,
+      nav.PAGE_TYPE.PROJECT
+    );
   });
 
   header.append(title, toggleBtn);
