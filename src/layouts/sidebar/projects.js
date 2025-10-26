@@ -15,7 +15,7 @@ function createHeader(sidebar) {
     'icon--large',
     'icon--hover',
   ];
-  const toggleBtn = icon.create(icon.chevronDown, toggleClasses, 'button');
+  const toggleBtn = icon.create(icon.chevronDown, toggleClasses);
 
   header.addEventListener('click', (event) => {
     if (event.target.closest('.sidebar-projects__header-icon')) return;
