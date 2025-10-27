@@ -11,7 +11,8 @@ import close from '../assets/icons/close.svg';
 import edit from '../assets/icons/edit.svg';
 import hashtag from '../assets/icons/hashtag.svg';
 import menu from '../assets/icons/menu.svg';
-import more from '../assets/icons/more.svg';
+import moreSolid from '../assets/icons/more-solid.svg';
+import moreHollow from '../assets/icons/more-hollow.svg';
 import plusSquare from '../assets/icons/plus-square.svg';
 import plus from '../assets/icons/plus.svg';
 import sidebarMinimalistic from '../assets/icons/sidebar-minimalistic.svg';
@@ -29,7 +30,8 @@ export {
   edit,
   hashtag,
   menu,
-  more,
+  moreSolid,
+  moreHollow,
   plus,
   plusSquare,
   sidebarMinimalistic,
