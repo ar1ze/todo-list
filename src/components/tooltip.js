@@ -93,23 +93,14 @@ function closeAllTooltips() {
 
 export function toggle(tooltip) {
   const isVisible = tooltip.classList.contains(VISIBLE_CLASS);
-
   closeAllTooltips();
 
-  if (!isVisible) {
-    openTooltip(tooltip);
-  }
-}
-
-export function closeAll() {
-  closeAllTooltips();
+  if (!isVisible) openTooltip(tooltip);
 }
 
 export function initializeClickOutside() {
   dom.addEvent(document, 'click', (e) => {
     const clickedInsideTooltip = e.target.closest('.tooltip-wrapper');
-    if (!clickedInsideTooltip) {
-      closeAll();
-    }
+    if (!clickedInsideTooltip) closeAllTooltips();
   });
 }

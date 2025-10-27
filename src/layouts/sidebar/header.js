@@ -1,20 +1,36 @@
 import * as icon from '../../utils/icon';
 import * as dom from '../../utils/dom';
 
-export function createSidebarHeader(sidebar) {
-  const header = dom.createElement('header', 'sidebar-header');
+const BEM_BLOCK_HEADER = 'sidebar-header';
 
-  const user = dom.createElement('div', 'sidebar-header__user');
-  const avatar = dom.createElement('div', 'sidebar-header__avatar');
+const CLASS_NAMES_HEADER = {
+  BLOCK: BEM_BLOCK_HEADER,
+  USER: `${BEM_BLOCK_HEADER}__user`,
+  AVATAR: `${BEM_BLOCK_HEADER}__avatar`,
+  USERNAME: `${BEM_BLOCK_HEADER}__username`,
+  TOGGLE: `${BEM_BLOCK_HEADER}__toggle`,
+};
+
+const CLASS_NAMES_SIDEBAR = {
+  MODIFIERS: {
+    COLLAPSE: 'sidebar--collapse',
+  },
+};
+
+export function createSidebarHeader(sidebar) {
+  const header = dom.createElement('header', CLASS_NAMES_HEADER.BLOCK);
+
+  const user = dom.createElement('div', CLASS_NAMES_HEADER.USER);
+  const avatar = dom.createElement('div', CLASS_NAMES_HEADER.AVATAR);
   const username = dom.createElement(
     'span',
-    'sidebar-header__username',
+    CLASS_NAMES_HEADER.USERNAME,
     'User'
   );
   user.append(avatar, username);
 
   const iconClasses = [
-    'sidebar-header__toggle',
+    CLASS_NAMES_HEADER.TOGGLE,
     icon.LARGE,
     icon.THIN,
     icon.HOVER,
@@ -22,7 +38,7 @@ export function createSidebarHeader(sidebar) {
   const toggle = icon.create(icon.sidebarMinimalistic, iconClasses, 'button');
 
   dom.addEvent(toggle, 'click', () =>
-    dom.toggleClass(sidebar, 'sidebar--collapse')
+    dom.toggleClass(sidebar, CLASS_NAMES_SIDEBAR.MODIFIERS.COLLAPSE)
   );
 
   header.append(user, toggle);
