@@ -3,6 +3,8 @@ import './scss/main.scss';
 import * as sidebar from './layouts/sidebar';
 import * as main from './layouts/main';
 
+import * as tooltip from './components/tooltip';
+
 import * as dom from './utils/dom';
 import * as loader from './utils/loader';
 import * as nav from './utils/nav';
@@ -44,6 +46,7 @@ class App {
     this.currentPage = page;
     this.main.replaceChildren();
     main.populateMain(this.main, page, pageType, this.projects);
+    tooltip.initializeClickOutside();
   }
 }
 

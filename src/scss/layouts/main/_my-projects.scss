@@ -76,6 +76,10 @@
   @include hover-state($bg: $color-light-grey);
 }
 
+.my-projects__project-item--active {
+  background: $color-light-grey;
+}
+
 .my-projects__project-link {
   flex: 1;
   display: flex;
@@ -104,4 +108,12 @@
 .my-projects__project-link-options {
   opacity: $opacity-0;
   @include transition((opacity));
+
+  &:hover {
+    background-color: $color-light-grey;
+  }
+}
+
+.my-projects__project-link-options--active {
+  opacity: $opacity-100;
 }

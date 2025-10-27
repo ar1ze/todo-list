@@ -1,0 +1,70 @@
+@use 'sass:color';
+@use '../abstracts' as *;
+
+.tooltip-wrapper {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  top: -50%;
+  z-index: $z-tooltip;
+  margin-left: 1rem;
+  border-radius: $radius-md;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  visibility: hidden;
+  background-color: white;
+  opacity: 0;
+
+  @include transition((opacity, visibility));
+
+  &:hover {
+    .tooltip__button--danger .tooltip__label {
+      color: color.scale(red, $blackness: 15%);
+    }
+  }
+}
+
+.tooltip--align-left {
+  right: 100%;
+}
+
+.tooltip--align-right {
+  left: 100%;
+}
+
+.tooltip--visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.tooltip__button {
+  display: flex;
+  gap: 0.2rem;
+  width: 100%;
+  align-items: center;
+  border: none;
+  border-radius: $radius-md;
+  padding-block: 0.25rem;
+  padding-inline: 0.25rem 2.5rem;
+  font-size: 0.8rem;
+  background: none;
+  cursor: pointer;
+
+  @include transition((background));
+  @include hover-state($bg: $color-light-grey);
+}
+
+.tooltip__button--danger .tooltip__label {
+  color: color.scale(red, $blackness: 10%);
+}
+
+.tooltip__button--danger .tooltip__icon svg path {
+  stroke: color.scale(red, $blackness: 15%);
+}
