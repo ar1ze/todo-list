@@ -19,7 +19,8 @@ button.icon {
   flex: 0 0 auto;
 }
 
-.icon svg path {
+.icon svg path,
+.icon svg circle {
   stroke: #4e4e4e;
 }
 
