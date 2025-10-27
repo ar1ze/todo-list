@@ -1,0 +1,65 @@
+@use '../../abstracts' as *;
+
+.my-projects {
+  display: grid;
+  gap: $spacing-md;
+}
+
+.my-projects__section {
+  display: grid;
+  gap: 1rem;
+}
+
+.my-projects__title,
+.my-projects__header {
+  color: $color-dark-grey;
+}
+
+.my-projects__header,
+.my-projects__list {
+  margin: 0;
+  padding: 0;
+}
+
+.my-projects__title {
+  font-size: $font-size-xl;
+}
+
+.my-projects__header {
+  padding-bottom: 0.4rem;
+  border-bottom: $border-width-thin solid $color-light-grey;
+  font-size: $font-size-sm;
+}
+
+.my-projects__list {
+  list-style-type: none;
+}
+
+.my-projects__item {
+  display: flex;
+  padding: 0.5rem 0.5rem;
+  border-radius: $radius-md;
+
+  @include transition((background));
+  @include hover-state($bg: $color-light-grey);
+}
+
+.my-projects__button {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.my-projects__button-content {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.my-projects__button-label {
+  font-size: $font-size-sm;
+}

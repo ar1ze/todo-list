@@ -1,6 +1,7 @@
 import './scss/main.scss';
 
 import * as sidebar from './layouts/sidebar';
+import * as main from './layouts/main';
 
 import * as dom from './utils/dom';
 import * as loader from './utils/loader';
@@ -25,15 +26,16 @@ class App {
     sidebar.populate(this.sidebar, this.projects);
     nav.initializeCurrentPage(this.startPage);
 
+    this._refreshMainContent(this.startPage, nav.PAGE_TYPE.PROJECT);
     window.addEventListener('load', () => loader.hideDisplay(this.loader));
 
     nav.onPageChange((detail) => {
-      this._handlePageChange(detail);
+      const { page, pageType } = detail;
+      this._handlePageChange(page, pageType);
     });
   }
 
-  _handlePageChange(detail) {
-    const { page, pageType } = detail;
+  _handlePageChange(page, pageType) {
     if (this.currentPage === page) return;
     this._refreshMainContent(page, pageType);
   }
@@ -41,32 +43,7 @@ class App {
   _refreshMainContent(page, pageType) {
     this.currentPage = page;
     this.main.replaceChildren();
-    this.updateMainContent(page, pageType);
-  }
-
-  _updateProjectContent(page) {
-    switch (page) {
-      case nav.PAGE.MY_PROJECTS:
-        break;
-      default:
-        break;
-    }
-  }
-
-  _updateViewContent(page) {
-    switch (page) {
-      case nav.PAGE.TODAY:
-        break;
-      case nav.PAGE.THIS_WEEK:
-        break;
-      case nav.PAGE.COMPLETED:
-        break;
-    }
-  }
-
-  updateMainContent(page, pageType) {
-    if (pageType === nav.PAGE_TYPE.PROJECT) this._updateProjectContent(page);
-    else if (pageType === nav.PAGE_TYPE.VIEW) this._updateViewContent(page);
+    main.populateMain(this.main, page, pageType, this.projects);
   }
 }
 
