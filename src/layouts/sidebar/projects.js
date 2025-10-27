@@ -4,21 +4,23 @@ import * as nav from '../../utils/nav';
 
 function createHeader(sidebar) {
   const header = dom.createElement('button', 'sidebar-projects__header');
-  const title = dom.createElement(
+  const label = dom.createElement(
     'span',
     'sidebar-projects__title',
     'My Projects'
   );
 
-  const toggleClasses = [
-    'sidebar-projects__header-icon',
-    'icon--large',
-    'icon--hover',
-  ];
-  const toggleBtn = icon.create(icon.chevronDown, toggleClasses);
+  const actions = dom.createElement('span', 'sidebar-projects__header-icons');
+  const toggleClasses = ['icon--large', 'icon--hover', 'icon--thin'];
+
+  const newProject = icon.create(icon.plus, toggleClasses);
+  newProject.classList.add('sidebar-projects__header-new-project');
+
+  const expandCollapse = icon.create(icon.chevronDown, toggleClasses);
+  expandCollapse.classList.add('sidebar-projects__header-expand-collapse');
 
   header.addEventListener('click', (event) => {
-    if (event.target.closest('.sidebar-projects__header-icon')) return;
+    if (event.target.closest('.sidebar-projects__header-icons')) return;
 
     nav.handleNavClick(
       event,
@@ -28,8 +30,9 @@ function createHeader(sidebar) {
     );
   });
 
-  header.append(title, toggleBtn);
-  return { header, toggleBtn };
+  actions.append(newProject, expandCollapse);
+  header.append(label, actions);
+  return { header, toggleBtn: expandCollapse };
 }
 
 function createProjectList(sidebar, projects) {

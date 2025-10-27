@@ -11,31 +11,33 @@
 }
 
 .my-projects__title,
-.my-projects__header {
+.my-projects__header-label {
   color: $color-dark-grey;
 }
 
-.my-projects__header,
-.my-projects__list {
+.my-projects__header-label,
+.my-projects__project-list {
   margin: 0;
   padding: 0;
 }
 
-.my-projects__title {
-  font-size: $font-size-xl;
+.my-projects__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  border-bottom: $border-width-thin solid $color-light-grey;
+  padding-bottom: 0.5rem;
 }
 
-.my-projects__header {
-  padding-bottom: 0.4rem;
-  border-bottom: $border-width-thin solid $color-light-grey;
+.my-projects__header-label {
   font-size: $font-size-sm;
 }
 
-.my-projects__list {
+.my-projects__project-list {
   list-style-type: none;
 }
 
-.my-projects__item {
+.my-projects__project-item {
   display: flex;
   padding: 0.5rem 0.5rem;
   border-radius: $radius-md;
@@ -44,7 +46,7 @@
   @include hover-state($bg: $color-light-grey);
 }
 
-.my-projects__button {
+.my-projects__project-link {
   flex: 1;
   display: flex;
   justify-content: space-between;
@@ -54,12 +56,34 @@
   cursor: pointer;
 }
 
-.my-projects__button-content {
+.my-projects__project-link-content {
   display: flex;
   align-items: center;
   gap: $spacing-xs;
 }
 
-.my-projects__button-label {
+.my-projects__project-link-label {
   font-size: $font-size-sm;
+}
+
+.my-projects__add-project-button {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border: none;
+  border-radius: $radius-md;
+  background: $bg-secondary;
+  cursor: pointer;
+
+  @include transition((background));
+  @include hover-state($bg: $color-light-grey);
+}
+
+.my-projects__add-project-button-icon {
+  padding: 0;
+}
+
+.my-projects__add-project-button-label {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
 }

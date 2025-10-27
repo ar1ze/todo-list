@@ -45,7 +45,7 @@ button.icon {
 .icon--hover {
   @include transition((background, stroke));
   &:hover {
-    background: $color-light-grey;
+    background: $color-muted-grey;
     svg path {
       stroke: $color-black;
     }

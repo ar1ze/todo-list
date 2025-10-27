@@ -20,6 +20,12 @@
   @include hover-state($bg: $color-light-grey);
 }
 
+.sidebar-projects__header:hover {
+  .sidebar-projects__header-new-project {
+    opacity: $opacity-100;
+  }
+}
+
 .sidebar-projects__header--active {
   background: $color-accent-red-light;
 
@@ -40,14 +46,17 @@
   display: none;
 }
 
-.sidebar-projects--collapsed .sidebar-projects__header-icon svg {
+.sidebar-projects--collapsed .sidebar-projects__header-expand-collapse svg {
   transform: rotate(-90deg);
 }
 
-.sidebar-projects__header-icon svg {
+.sidebar-projects__header-expand-collapse svg {
   @include transition((transform));
 }
 
-.sidebar-projects__header-icon {
-  @include hover-state($bg: #e7e4e2);
+.sidebar-projects__header-new-project {
+  opacity: 0;
+
+  @include transition((opacity));
+  @include hover-state($opacity: $opacity-100);
 }
