@@ -15,9 +15,9 @@ export function createSidebarHeader(sidebar) {
 
   const iconClasses = [
     'sidebar-header__toggle',
-    'icon--large',
-    'icon--thin',
-    'icon--hover',
+    icon.LARGE,
+    icon.THIN,
+    icon.HOVER,
   ];
   const toggle = icon.create(icon.sidebarMinimalistic, iconClasses, 'button');
 

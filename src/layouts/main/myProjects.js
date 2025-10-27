@@ -12,8 +12,8 @@ function createAddProjectButton() {
   const button = dom.createElement('button', 'my-projects__add-project-button');
   const iconClasses = [
     'my-projects__add-project-button-icon',
-    'icon--large',
-    'icon--thin',
+    icon.LARGE,
+    icon.THIN,
   ];
   const plusIcon = icon.create(icon.plus, iconClasses);
   const label = dom.createElement(
@@ -87,7 +87,7 @@ function createOptionsWrapper(projectId, iconClasses) {
 }
 
 function createProjectItem(project) {
-  const iconClasses = ['my-projects__button-icon', 'icon--large', 'icon--thin'];
+  const iconClasses = ['my-projects__button-icon', icon.LARGE, icon.THIN];
 
   const item = dom.createElement('li', 'my-projects__project-item');
   const projectLink = dom.createElement('button', 'my-projects__project-link');

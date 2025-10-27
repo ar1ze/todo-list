@@ -11,7 +11,7 @@ function createHeader(sidebar) {
   );
 
   const actions = dom.createElement('span', 'sidebar-projects__header-icons');
-  const toggleClasses = ['icon--large', 'icon--hover', 'icon--thin'];
+  const toggleClasses = [icon.LARGE, icon.HOVER, icon.THIN];
 
   const newProject = icon.create(icon.plus, toggleClasses);
   newProject.classList.add('sidebar-projects__header-new-project');

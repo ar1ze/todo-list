@@ -8,7 +8,7 @@ const BUTTON_ACTIVE_CLASS = 'my-projects__project-link-options--active';
 const PROJECT_ITEM_ACTIVE_CLASS = 'my-projects__project-item--active';
 
 function createTooltipItem(iconType, label, isDanger = false) {
-  const menuIconClasses = ['tooltip__icon', 'icon--small'];
+  const menuIconClasses = ['tooltip__icon', icon.SMALL];
   const item = dom.createElement('li', 'tooltip__item');
   const button = dom.createElement('button', 'tooltip__button');
 

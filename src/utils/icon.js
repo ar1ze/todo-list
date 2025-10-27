@@ -18,6 +18,14 @@ import plus from '../assets/icons/plus.svg';
 import sidebarMinimalistic from '../assets/icons/sidebar-minimalistic.svg';
 import trash from '../assets/icons/trash.svg';
 
+const LARGE = 'icon--large';
+const SMALL = 'icon--small';
+const THIN = 'icon--thin';
+const BOLD = 'icon--bold';
+const HOVER = 'icon--hover';
+
+export { LARGE, SMALL, THIN, BOLD, HOVER };
+
 export {
   calendarToday,
   calendarUpcoming,
