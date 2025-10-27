@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../../abstracts' as *;
 
 .my-projects {
@@ -36,14 +37,20 @@
 .my-projects__add-project-button {
   display: flex;
   align-items: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.4rem 0.75rem;
   border: none;
   border-radius: $radius-md;
-  background: $bg-secondary;
+  background: #ebebeb;
   cursor: pointer;
 
   @include transition((background));
-  @include hover-state($bg: $color-light-grey);
+  @include hover-state($bg: color.scale(#ebebeb, $blackness: 4%));
+}
+
+.my-projects__add-project-button:hover {
+  .my-projects__add-project-button-label {
+    color: $color-black;
+  }
 }
 
 .my-projects__add-project-button-icon {
@@ -53,6 +60,7 @@
 .my-projects__add-project-button-label {
   font-size: $font-size-xs;
   font-weight: $font-weight-medium;
+  color: $color-dark-grey;
 }
 
 .my-projects__project-list {
