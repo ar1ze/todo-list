@@ -82,13 +82,27 @@ export function initializeCurrentPage(page) {
   if (item) item.classList.add(activeClass);
 }
 
-export function handleNavClick(event, container, page, pageType) {
+export function findNavItemByPage(container, page) {
+  return Array.from(container.querySelectorAll('.nav-list__link')).find(
+    (btn) => btn.textContent.trim() === page
+  );
+}
+
+export function handleNavClick(
+  event,
+  container,
+  page,
+  pageType,
+  navLink = true
+) {
   if (getCurrentPage() === page) return;
 
   clearActiveStates(container);
 
   const { siblingClass, activeClass } = getSiblingActiveClass(page);
-  const siblingItem = event.target.closest(`.${siblingClass}`);
+
+  let siblingItem = event.currentTarget.closest(`.${siblingClass}`);
+  if (!navLink) siblingItem = findNavItemByPage(container, page);
   if (siblingItem) siblingItem.classList.add(activeClass);
 
   setActivePage(page);

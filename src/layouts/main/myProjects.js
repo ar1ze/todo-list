@@ -1,5 +1,6 @@
 import * as icon from '../../utils/icon';
 import * as dom from '../../utils/dom';
+import * as nav from '../../utils/nav';
 import * as tooltip from '../../components/tooltip';
 
 const BEM_BLOCK = 'my-projects';
@@ -131,6 +132,8 @@ function createProjectItem(project) {
 }
 
 function createProjectSection(projects) {
+  const sidebar = dom.getElement('.sidebar');
+
   const section = dom.createElement('section', CLASS_NAMES.SECTION);
   const header = createProjectHeader(projects);
 
@@ -138,6 +141,15 @@ function createProjectSection(projects) {
 
   projects.forEach((project) => {
     const item = createProjectItem(project);
+    item.addEventListener('click', (event) => {
+      nav.handleNavClick(
+        event,
+        sidebar,
+        project.name,
+        nav.PAGE_TYPE.PROJECT,
+        false
+      );
+    });
     list.append(item);
   });
 
