@@ -157,7 +157,7 @@ function createProjectSection(projects) {
   return section;
 }
 
-export function populateMyProjects(main, projects) {
+export function populate(main, projects) {
   const body = dom.createElement('div', CLASS_NAMES.BLOCK);
 
   const title = createProjectTitle();

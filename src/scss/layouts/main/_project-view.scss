@@ -1,0 +1,50 @@
+@use 'sass:color';
+@use '../../abstracts' as *;
+
+.project-view {
+  display: grid;
+  gap: $spacing-sm;
+}
+
+.project-view__section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.project-view__title {
+  color: $color-dark-grey;
+}
+
+.project-view__add-task-button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  &:hover {
+    .project-view__add-task-text {
+      color: #da4b3e;
+    }
+    .project-view__add-task-icon svg {
+      border-radius: $radius-circle;
+      background: #da4b3e;
+      transform: scale(0.85);
+      path {
+        stroke: $color-white;
+      }
+    }
+  }
+}
+
+.project-view__add-task-text {
+  font-size: 0.8rem;
+  color: color.scale($color-dark-grey, $lightness: 20%);
+}
+
+.project-view__add-task-icon svg path {
+  stroke: color.scale(red, $blackness: 20%);
+  stroke-width: 1;
+}
